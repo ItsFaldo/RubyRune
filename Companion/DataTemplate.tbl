@@ -1,6 +1,7 @@
 {
   settings = {
     autoJoinLast = false,
+    defaultProt = "RRuSrv",
     lastServID = nil,
     lastServHost = nil,
     lastServProt = nil
