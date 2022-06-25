@@ -33,19 +33,19 @@ end
 
 -- DOWNLOAD REQUIRED FILES
 if fs.exists("rubyrune/api/fal.lua") then else
-	pbGet("1gUjTCz6","rubyrune/api/fal.lua") end
+	write("GET fal.lua") if pbGet("1gUjTCz6","rubyrune/api/fal.lua") then print(" [DONE]") else print(" [FAIL]") end end
 if fs.exists("rubyrune/api/rru.lua") then else
-	gitGet("api/rru.lua","rubyrune/api/rru.lua") end
+	write("GET rru.lua") if gitGet("api/rru.lua","rubyrune/api/rru.lua") then print(" [DONE]") else print(" [FAIL]") end end
 if fs.exists("rubyrune/data.tbl") then else
-	gitGet("Companion/DataTemplate.tbl","rubyrune/data.tbl") end
+	write("GET data.tbl") if gitGet("Companion/DataTemplate.tbl","rubyrune/data.tbl") then print(" [DONE]") else print(" [FAIL]") end end
 
 -- INIT & VARIBLES
 os.loadAPI("rubyrune/api/fal.lua") os.loadAPI("rubyrune/api/rru.lua")
 di=fal.devInfo() if di.type==0 and di.isWifi and di.isAdv then else
 	print("An Advanced Wireless Pocket Computer is required!") error() end
 data=fal.loadTbl("rubyrune/data.tbl")
-rnet=rednet rnet.open(di.wifiSide)
-servIDs = rnet.lookup(data.defaultProt)
+rnet=rednet rnet.open(di.wifiSide) write("Fetching server list")
+servIDs = rnet.lookup(data["settings"].defaultProt)
 servID = nil servHost = nil servProt = nil
 state = 0 currentUI = 0
 
