@@ -1,0 +1,11 @@
+{
+  settings = {
+    autoJoinLast = false,
+    lastServID = nil,
+    lastServHost = nil,
+    lastServProt = nil
+  },
+  playerData = {
+  
+  }
+}
